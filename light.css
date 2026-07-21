@@ -5719,6 +5719,11 @@ body.has-stats-dialog { overflow: hidden; }
 }
 
 /* V22 — project journey timeline */
+html,
+body {
+  overflow-x: clip;
+}
+
 .projects-legacy {
   display: none !important;
 }
