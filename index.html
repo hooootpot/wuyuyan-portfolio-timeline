@@ -1,0 +1,1593 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="游戏设计师吴宇艳的柔和蜡笔手绘作品集：游戏设计、视觉美术与交互叙事。" />
+    <meta name="theme-color" content="#f5ecd9" />
+    <meta property="og:title" content="WU YUYAN — Game Designer" />
+    <meta property="og:description" content="游戏设计、视觉美术与交互叙事。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://hooootpot.github.io/wuyuyan-portfolio/portfolio/itch-mine.webp" />
+    <link rel="icon" href="./favicon.png" />
+    <title>吴宇艳 — 游戏设计师 / Game Designer</title>
+<style>
+
+:root {
+  --ink: #080a09;
+  --panel: #0e1110;
+  --panel-2: #141715;
+  --paper: #f2f2eb;
+  --muted: #9a9d96;
+  --line: rgba(242, 242, 235, 0.15);
+  --acid: #d7ff3f;
+  --page: min(1700px, calc(100vw - 96px));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+.site-shell {
+  background:
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,.025) 50%, transparent calc(50% + 1px)),
+    var(--ink);
+}
+
+.page-width {
+  width: var(--page);
+  margin: 0 auto;
+}
+
+.topbar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 92px;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, rgba(5,7,6,.76), rgba(5,7,6,.14));
+  backdrop-filter: blur(12px);
+}
+
+.brand-mark {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  font-size: 19px;
+}
+
+.brand-mark i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--acid);
+  box-shadow: 0 0 18px rgba(215,255,63,.7);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 3vw, 64px);
+  font: 11px/1.2 "Courier New", monospace;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.74);
+}
+
+.nav-links a {
+  position: relative;
+  padding: 12px 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 4px;
+  height: 1px;
+  background: var(--acid);
+  transition: right .25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  right: 0;
+}
+
+.contact-pill {
+  justify-self: end;
+  min-width: 158px;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(255,255,255,.24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font: 10px/1 "Courier New", monospace;
+  letter-spacing: .08em;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.contact-pill:hover,
+.contact-pill:focus-visible {
+  background: var(--acid);
+  border-color: var(--acid);
+  color: var(--ink);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--acid);
+  box-shadow: 0 0 14px rgba(215,255,63,.65);
+}
+
+.contact-pill:hover .status-dot {
+  background: var(--ink);
+  box-shadow: none;
+}
+
+.hero {
+  min-height: 100svh;
+  height: max(760px, 100svh);
+  position: relative;
+  overflow: hidden;
+  background: #090b0a url("./portfolio/hero-frame.webp") center/cover no-repeat;
+}
+
+.hero-video,
+.hero-shade,
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video {
+  object-fit: cover;
+  transform: scale(1.02);
+  filter: saturate(.88) contrast(1.04);
+}
+
+.hero-shade {
+  background:
+    linear-gradient(90deg, rgba(4,6,5,.88) 0%, rgba(4,6,5,.5) 38%, rgba(4,6,5,.16) 75%),
+    linear-gradient(180deg, rgba(2,3,2,.35), transparent 35%, rgba(2,3,2,.86) 100%);
+}
+
+.hero-noise {
+  opacity: .12;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding-top: 154px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font: 11px/1 "Courier New", monospace;
+  color: rgba(255,255,255,.68);
+  letter-spacing: .16em;
+}
+
+.kicker-line {
+  width: 46px;
+  height: 1px;
+  background: var(--acid);
+}
+
+.hero-title {
+  margin: clamp(58px, 9vh, 116px) 0 0;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(84px, 10.8vw, 196px);
+  font-weight: 800;
+  line-height: .72;
+  letter-spacing: -.075em;
+}
+
+.hero-title > span {
+  display: block;
+}
+
+.title-outline {
+  margin-left: 11vw;
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(242,242,235,.82);
+}
+
+.hero-title .title-small {
+  margin: 34px 0 0 31vw;
+  color: var(--acid);
+  font: 600 clamp(18px, 2.1vw, 37px)/1 "Courier New", monospace;
+  letter-spacing: .03em;
+}
+
+.hero-lower {
+  margin-top: auto;
+  padding-bottom: 44px;
+  display: grid;
+  grid-template-columns: 1fr minmax(420px, 1.25fr) auto;
+  align-items: end;
+  gap: 48px;
+}
+
+.hero-coordinates {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font: 10px/1.2 "Courier New", monospace;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.52);
+}
+
+.hero-intro {
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.scroll-cue {
+  width: 142px;
+  height: 142px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font: 9px/1 "Courier New", monospace;
+  letter-spacing: .08em;
+  transition: border-color .25s ease, background .25s ease, color .25s ease;
+}
+
+.scroll-cue i {
+  font-style: normal;
+  font-size: 22px;
+}
+
+.scroll-cue:hover,
+.scroll-cue:focus-visible {
+  border-color: var(--acid);
+  background: var(--acid);
+  color: var(--ink);
+}
+
+.hero-index {
+  position: absolute;
+  z-index: 3;
+  right: 22px;
+  top: 44%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transform: rotate(90deg) translateX(50%);
+  transform-origin: right center;
+  color: rgba(255,255,255,.42);
+  font: 9px/1 "Courier New", monospace;
+  letter-spacing: .18em;
+}
+
+.ticker {
+  height: 76px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--acid);
+  color: var(--ink);
+}
+
+.ticker-track {
+  width: max-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  animation: ticker 28s linear infinite;
+  font: 800 20px/1 Arial, sans-serif;
+  letter-spacing: -.03em;
+}
+
+.ticker-track i {
+  font-style: normal;
+  font-size: 14px;
+}
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+.section-block {
+  padding: clamp(130px, 12vw, 220px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: clamp(78px, 8vw, 142px);
+}
+
+.section-head > p {
+  margin: 10px 0 0;
+  font: 11px/1.2 "Courier New", monospace;
+  letter-spacing: .12em;
+  color: var(--muted);
+}
+
+.section-head > p span {
+  color: var(--acid);
+  margin-right: 12px;
+}
+
+.section-head h2 {
+  margin: 0;
+  max-width: 1000px;
+  font-size: clamp(42px, 5.2vw, 88px);
+  line-height: 1.07;
+  letter-spacing: -.055em;
+  font-weight: 600;
+}
+
+.about {
+  position: relative;
+  background:
+    radial-gradient(circle at 17% 32%, rgba(215,255,63,.05), transparent 28%),
+    var(--ink);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(420px, .82fr) 1.18fr;
+  gap: clamp(68px, 8vw, 150px);
+  align-items: center;
+}
+
+.portrait-frame {
+  position: relative;
+  margin: 0;
+  aspect-ratio: .88;
+  overflow: hidden;
+  background: #c8c9c3;
+}
+
+.portrait-frame::before,
+.portrait-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 18px;
+  border: 1px solid rgba(255,255,255,.28);
+  pointer-events: none;
+}
+
+.portrait-frame::after {
+  inset: auto 18px 18px auto;
+  width: 13px;
+  height: 13px;
+  border-left: 0;
+  border-top: 0;
+  border-color: var(--acid);
+}
+
+.portrait-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 34%;
+  transform: scale(1.16);
+  filter: grayscale(1) contrast(1.08) brightness(.88);
+}
+
+.portrait-glow {
+  position: absolute;
+  z-index: 1;
+  inset: auto -12% -20% 30%;
+  height: 55%;
+  background: var(--acid);
+  filter: blur(90px);
+  opacity: .28;
+  mix-blend-mode: color-dodge;
+}
+
+.portrait-frame figcaption {
+  position: absolute;
+  z-index: 3;
+  left: 28px;
+  right: 28px;
+  bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255,255,255,.7);
+  font: 9px/1 "Courier New", monospace;
+  letter-spacing: .12em;
+}
+
+.about-copy {
+  padding: 10% 0;
+}
+
+.about-lead {
+  margin: 0 0 48px;
+  max-width: 940px;
+  font-size: clamp(30px, 3.25vw, 55px);
+  line-height: 1.28;
+  letter-spacing: -.04em;
+  color: var(--paper) !important;
+}
+
+.about-copy > p:not(.about-lead) {
+  max-width: 740px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 2;
+}
+
+.about-contact {
+  margin-top: 62px;
+  max-width: 740px;
+  border-top: 1px solid var(--line);
+}
+
+.about-contact a {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  font: 12px/1 "Courier New", monospace;
+  letter-spacing: .05em;
+  transition: color .2s ease, padding .2s ease;
+}
+
+.about-contact a:hover,
+.about-contact a:focus-visible {
+  color: var(--acid);
+  padding-left: 8px;
+}
+
+.stats-grid {
+  margin-top: 120px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.stat {
+  min-height: 190px;
+  padding: 38px 28px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat:last-child { border-right: 0; }
+
+.stat strong {
+  color: var(--acid);
+  font-size: clamp(48px, 5vw, 82px);
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.timeline {
+  margin-top: 120px;
+  border-top: 1px solid var(--line);
+}
+
+.timeline-label {
+  padding: 24px 0 38px;
+  color: var(--muted);
+  font: 10px/1 "Courier New", monospace;
+  letter-spacing: .12em;
+}
+
+.timeline-row {
+  min-height: 126px;
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 1fr 2.2fr .6fr;
+  gap: 60px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+
+.timeline-date,
+.timeline-row > span {
+  color: var(--muted);
+  font: 10px/1.2 "Courier New", monospace;
+  letter-spacing: .08em;
+}
+
+.timeline-row > span { text-align: right; }
+
+.timeline-row h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  letter-spacing: -.02em;
+}
+
+.timeline-row p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.projects {
+  background: #0b0d0c;
+}
+
+.section-head-row {
+  grid-template-columns: 1fr 2.2fr .45fr;
+}
+
+.section-note {
+  justify-self: end;
+  margin-top: 10px;
+  color: var(--muted);
+  font: 9px/1 "Courier New", monospace;
+  letter-spacing: .1em;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(56px, 6vw, 110px) 32px;
+}
+
+.project-card {
+  grid-column: span 6;
+}
+
+.project-card:first-child {
+  grid-column: span 12;
+}
+
+.project-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #161917;
+}
+
+.project-card:first-child .project-image-wrap {
+  aspect-ratio: 2 / 1;
+}
+
+.project-image-wrap > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .9s cubic-bezier(.2,.75,.2,1), filter .5s ease;
+}
+
+.project-card:hover .project-image-wrap > img {
+  transform: scale(1.035);
+  filter: brightness(.72) saturate(.85);
+}
+
+.project-index {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(7,9,8,.62);
+  border: 1px solid rgba(255,255,255,.24);
+  backdrop-filter: blur(10px);
+  font: 10px/1 "Courier New", monospace;
+}
+
+.project-hover {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .35s ease, transform .35s ease;
+  font: 10px/1 "Courier New", monospace;
+  letter-spacing: .12em;
+}
+
+.project-hover i {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--acid);
+  color: var(--ink);
+  font-style: normal;
+  font-size: 18px;
+}
+
+.project-card:hover .project-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-meta {
+  position: relative;
+  padding: 26px 0 0;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr auto;
+  gap: 36px;
+  align-items: start;
+}
+
+.project-card:not(:first-child) .project-meta {
+  grid-template-columns: 1fr auto;
+}
+
+.project-card:not(:first-child) .project-summary {
+  grid-column: 1 / -1;
+}
+
+.project-meta h3 {
+  margin: 0 0 9px;
+  font-size: clamp(21px, 2vw, 34px);
+  letter-spacing: -.035em;
+}
+
+.project-meta p {
+  margin: 0;
+}
+
+.project-meta > div p,
+.project-year {
+  color: var(--muted);
+  font: 9px/1.2 "Courier New", monospace;
+  letter-spacing: .08em;
+}
+
+.project-summary {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.project-year {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.visual-note {
+  margin: 88px 0 0;
+  color: rgba(255,255,255,.36);
+  font-size: 11px;
+}
+
+.strengths {
+  background:
+    radial-gradient(circle at 70% 38%, rgba(215,255,63,.055), transparent 30%),
+    var(--ink);
+}
+
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.strength-card {
+  min-height: 470px;
+  padding: clamp(30px, 4vw, 64px);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background .35s ease, color .35s ease;
+}
+
+.strength-card:nth-child(2) {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+.strength-card:not(:nth-child(2)):hover {
+  background: var(--panel-2);
+}
+
+.strength-top {
+  display: flex;
+  justify-content: space-between;
+  font: 10px/1 "Courier New", monospace;
+}
+
+.strength-top i { font-style: normal; font-size: 20px; }
+
+.strength-card h3 {
+  margin: 0;
+  font-size: clamp(31px, 3.2vw, 52px);
+  letter-spacing: -.055em;
+}
+
+.strength-card h4 {
+  margin: 12px 0 26px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.strength-card p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.strength-card:nth-child(2) p {
+  color: rgba(8,10,9,.7);
+}
+
+.strength-card ul {
+  margin: 42px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.strength-card li {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.strength-card:nth-child(2) li {
+  color: var(--ink);
+  border-color: rgba(8,10,9,.28);
+}
+
+.contact-screen {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 36%, rgba(215,255,63,.17), transparent 24%),
+    linear-gradient(140deg, #0e110f, #050605 72%);
+}
+
+.contact-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 7.5vw 7.5vw;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.contact-orbit {
+  position: absolute;
+  width: min(48vw, 760px);
+  aspect-ratio: 1;
+  right: -9vw;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(215,255,63,.24);
+  border-radius: 50%;
+  box-shadow: inset 0 0 120px rgba(215,255,63,.03);
+}
+
+.contact-orbit::before,
+.contact-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 13%;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 50%;
+}
+
+.contact-orbit::after {
+  inset: 35%;
+  background: var(--acid);
+  border: 0;
+  filter: blur(70px);
+  opacity: .12;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 2;
+  padding: 150px 0 42px;
+}
+
+.contact-kicker {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 clamp(60px, 8vh, 100px);
+  color: var(--muted);
+  font: 10px/1 "Courier New", monospace;
+  letter-spacing: .12em;
+}
+
+.contact-inner h2 {
+  margin: 0;
+  font-size: clamp(74px, 9.2vw, 164px);
+  line-height: .83;
+  letter-spacing: -.075em;
+  font-weight: 800;
+}
+
+.contact-inner h2 span { display: block; }
+
+.contact-inner h2 em {
+  color: var(--acid);
+  font-style: normal;
+}
+
+.contact-main {
+  width: min(100%, 660px);
+  margin-top: clamp(56px, 8vh, 92px);
+  padding: 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.42);
+  font: 11px/1 "Courier New", monospace;
+  letter-spacing: .12em;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.contact-main i {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--acid);
+  color: var(--ink);
+  font-size: 18px;
+  font-style: normal;
+  transition: transform .25s ease;
+}
+
+.contact-main:hover,
+.contact-main:focus-visible {
+  color: var(--acid);
+  border-color: var(--acid);
+}
+
+.contact-main:hover i { transform: rotate(45deg); }
+
+.contact-footer {
+  margin-top: clamp(88px, 13vh, 160px);
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 50px;
+  align-items: end;
+}
+
+.contact-footer > div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.contact-footer span {
+  color: var(--muted);
+  font: 9px/1 "Courier New", monospace;
+  letter-spacing: .12em;
+}
+
+.contact-footer a,
+.contact-footer p {
+  margin: 0;
+  font: 11px/1.2 "Courier New", monospace;
+}
+
+.contact-footer a:hover { color: var(--acid); }
+
+.back-top { white-space: nowrap; }
+
+@media (max-width: 1100px) {
+  :root { --page: min(1700px, calc(100vw - 48px)); }
+  .topbar { padding: 0 24px; }
+  .nav-links { display: none; }
+  .topbar { grid-template-columns: 1fr 1fr; }
+  .hero-title { font-size: clamp(68px, 13vw, 130px); }
+  .hero-lower { grid-template-columns: 1fr 2fr; }
+  .scroll-cue { display: none; }
+  .about-grid { grid-template-columns: .85fr 1.15fr; gap: 54px; }
+  .section-head-row { grid-template-columns: 1fr 2.2fr; }
+  .section-note { display: none; }
+  .project-meta { grid-template-columns: 1fr auto; }
+  .project-summary { grid-column: 1 / -1; }
+}
+
+@media (max-width: 760px) {
+  :root { --page: calc(100vw - 32px); }
+  .topbar { height: 72px; padding: 0 16px; }
+  .contact-pill { min-width: 138px; height: 40px; }
+  .hero { height: max(680px, 100svh); }
+  .hero-content { padding-top: 126px; }
+  .hero-kicker { font-size: 9px; }
+  .hero-title { margin-top: 90px; font-size: clamp(58px, 18vw, 92px); line-height: .78; }
+  .title-outline { margin-left: 0; }
+  .hero-title .title-small { margin: 25px 0 0 0; font-size: 16px; }
+  .hero-lower { grid-template-columns: 1fr; gap: 25px; }
+  .hero-coordinates { display: none; }
+  .hero-intro { font-size: 12px; }
+  .hero-index { display: none; }
+  .ticker { height: 58px; }
+  .ticker-track { font-size: 15px; }
+  .section-block { padding: 100px 0; }
+  .section-head,
+  .section-head-row { grid-template-columns: 1fr; gap: 30px; margin-bottom: 65px; }
+  .section-head h2 { font-size: 40px; }
+  .about-grid { grid-template-columns: 1fr; gap: 50px; }
+  .about-copy { padding: 0; }
+  .about-lead { font-size: 29px; }
+  .about-copy > p:not(.about-lead) { font-size: 13px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); margin-top: 80px; }
+  .stat { min-height: 145px; border-bottom: 1px solid var(--line); }
+  .stat:nth-child(2) { border-right: 0; }
+  .timeline { margin-top: 80px; }
+  .timeline-row { grid-template-columns: 1fr; gap: 13px; min-height: auto; }
+  .timeline-row > span { text-align: left; }
+  .project-card,
+  .project-card:first-child { grid-column: span 12; }
+  .project-card:first-child .project-image-wrap { aspect-ratio: 4 / 3; }
+  .project-meta,
+  .project-card:not(:first-child) .project-meta { grid-template-columns: 1fr auto; gap: 18px; }
+  .project-summary { grid-column: 1 / -1; }
+  .strength-grid { grid-template-columns: 1fr; }
+  .strength-card { min-height: 410px; padding: 32px 26px; }
+  .contact-inner { padding-top: 120px; }
+  .contact-inner h2 { font-size: clamp(56px, 17vw, 92px); line-height: .9; }
+  .contact-footer { grid-template-columns: repeat(2, 1fr); }
+  .back-top { grid-column: 1 / -1; }
+  .contact-orbit { width: 90vw; right: -45vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ticker-track { animation: none; }
+  .hero-video { display: none; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
+</style>    <link rel="stylesheet" href="./light.css?v=22" />
+    <script src="./i18n.js?v=20" defer></script>
+  </head>
+  <body>
+    <link rel="preload" as="image" href="./portfolio/hero-frame.webp" />
+    <link rel="preload" as="image" href="./portfolio/og-playable-worlds.webp" />
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="#home" aria-label="返回首页"><span>WYY</span><i></i></a>
+        <div class="top-actions">
+          <div class="language-toggle" role="group" aria-label="语言 / Language">
+            <button type="button" data-language="zh" aria-pressed="true">中文</button>
+            <button type="button" data-language="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="contact-pill" href="mailto:ywu044@gold.ac.uk">
+            <span class="status-dot"></span><span data-i18n="contactCta">联系我</span><span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </header>
+
+      <nav class="nav-links" id="site-navigation" aria-label="主导航">
+        <a href="#about"><span class="nav-index">01</span><span class="nav-label" data-i18n="nav.0">关于</span></a>
+        <a href="#experience"><span class="nav-index">02</span><span class="nav-label" data-i18n="nav.1">工作</span></a>
+        <a href="#education"><span class="nav-index">03</span><span class="nav-label" data-i18n="nav.2">学习</span></a>
+        <a href="#projects"><span class="nav-index">04</span><span class="nav-label" data-i18n="nav.3">项目</span></a>
+        <a href="#strengths"><span class="nav-index">05</span><span class="nav-label" data-i18n="nav.4">优势</span></a>
+      </nav>
+      <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+        <span aria-hidden="true">✦</span><span data-i18n="navMenu">导航</span>
+      </button>
+
+      <main>
+        <section class="hero" id="home">
+          <video class="hero-video" autoplay muted loop playsinline poster="./portfolio/hero-frame.webp" aria-hidden="true">
+            <source src="./portfolio/hero-loop.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-shade"></div>
+          <div class="hero-noise"></div>
+
+          <div class="hero-cover-stack">
+            <figure class="hero-sketch-card">
+              <img src="./portfolio/og-playable-worlds.webp" alt="可玩世界 PLAYABLE WORLDS 手绘主题封面" width="1536" height="864" />
+              <h1 class="hero-title" data-i18n="heroTitle.0" aria-label="游戏设计师吴宇艳">游戏设计师</h1>
+              <figcaption>
+                <span data-i18n="heroCaption.0">可玩世界</span>
+                <span data-i18n="heroCaption.1">PLAYABLE WORLDS →</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="hero-scribbles" aria-hidden="true">
+            <span class="scribble-one" data-i18n="scribbles.0">灵感藏在这里 ↓</span>
+            <span class="scribble-two" data-i18n="scribbles.1">绘制 · 构建 · 玩耍</span>
+            <i>✷</i>
+          </div>
+
+          <div class="hero-content page-width">
+            <div class="hero-kicker">
+              <span class="kicker-line"></span><span data-i18n="heroKicker">游戏设计 · 视觉美术 · 交互叙事</span>
+            </div>
+            <div class="hero-lower">
+              <div class="hero-coordinates">
+                <span>39.9042° N</span>
+                <span>116.4074° E</span>
+              </div>
+              <p class="hero-intro" data-i18n-html="heroIntro">我是吴宇艳，一名在游戏机制、视觉美术与实时体验之间工作的游戏设计师。<br />用叙事、交互和快速原型，把想法推进为清晰、可玩的体验。</p>
+              <a class="scroll-cue" href="#about">
+                <span data-i18n="scroll">向下探索</span><i aria-hidden="true">↓</i>
+              </a>
+            </div>
+          </div>
+          <div class="hero-index" aria-hidden="true">
+            <span data-i18n="heroIndex.0">作品集</span>
+            <span data-i18n="heroIndex.1">2026 / 01</span>
+          </div>
+        </section>
+
+        <div class="ticker" aria-hidden="true">
+          <div class="ticker-track">
+            <span data-i18n="ticker.0">游戏设计</span><i>✦</i>
+            <span data-i18n="ticker.1">游戏美术</span><i>✦</i>
+            <span data-i18n="ticker.2">交互叙事</span><i>✦</i>
+            <span data-i18n="ticker.3">实时三维</span><i>✦</i>
+            <span data-i18n="ticker.0">游戏设计</span><i>✦</i>
+            <span data-i18n="ticker.1">游戏美术</span><i>✦</i>
+            <span data-i18n="ticker.2">交互叙事</span><i>✦</i>
+            <span data-i18n="ticker.3">实时三维</span><i>✦</i>
+          </div>
+        </div>
+
+        <section class="about section-block" id="about">
+          <div class="page-width">
+            <div class="section-head">
+              <p data-i18n-html="aboutLabel"><span>01</span> 关于我</p>
+              <h2 data-i18n-html="aboutTitle">跨越视觉、技术与真实场景的<br />复合型设计实践。</h2>
+            </div>
+            <div class="about-grid">
+              <figure class="portrait-frame">
+                <div class="portrait-glow"></div>
+                <img src="./portfolio/portrait-2025.webp" alt="游戏设计师吴宇艳证件照" loading="lazy" decoding="async" />
+                <figcaption>
+                  <span data-i18n="portraitCaption.0">吴宇艳.照片</span>
+                  <span data-i18n="portraitCaption.1">北京 · 中国</span>
+                </figcaption>
+              </figure>
+              <div class="about-copy">
+                <p class="about-lead" data-i18n="aboutLead">我相信好的视觉不只需要“好看”，还要能解释问题、建立感受，并最终被真实地使用。</p>
+                <p data-i18n="aboutBody">北京林业大学数字媒体艺术学士，伦敦大学金史密斯学院游戏设计与艺术硕士。我的经验横跨品牌与平面、空间美陈、游戏美术、实时引擎和交互原型，能够在约束中快速找到有力的视觉解法。</p>
+                <div class="about-contact">
+                  <a href="mailto:ywu044@gold.ac.uk">ywu044@gold.ac.uk <span>↗</span></a>
+                  <a href="tel:+8613371778515">+86 133 7177 8515 <span>↗</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="stats-grid" aria-label="能力亮点，点击查看详细经历">
+              <button class="stat" type="button" data-stat-index="0" aria-haspopup="dialog" aria-controls="stats-dialog">
+                <strong>300+</strong><span data-i18n="stats.0">游戏体验样本</span><small data-i18n="statHint">点击查看 ↗</small>
+                <span class="stat-popover" role="tooltip"><b data-i18n="statDetails.0.title">把游玩变成设计研究</b><em data-i18n="statDetails.0.text">我持续体验解谜、平台动作、角色扮演、模拟经营、桌游与互动叙事等不同类型，累计游玩 300+ 游戏样本。我会记录关卡节奏、反馈方式、叙事线索和视觉语言，并把这些观察带回自己的玩法与原型设计。</em></span>
+              </button>
+              <button class="stat" type="button" data-stat-index="1" aria-haspopup="dialog" aria-controls="stats-dialog">
+                <strong>07</strong><span data-i18n="stats.1">公开游戏项目</span><small data-i18n="statHint">点击查看 ↗</small>
+                <span class="stat-popover" role="tooltip"><b data-i18n="statDetails.1.title">从独立原型到团队协作</b><em data-i18n="statDetails.1.text">我在 itch.io 公开了 7 个游戏项目：MINE、OH!、Fishing、AI Battle Demo 2.0、AI Battle Demo、GIE-GIE-GIE 和 RIFTCROSSER，内容包括密室解谜、平台搭建、钓鱼交互、动作战斗与 Game Jam 团队创作。</em></span>
+              </button>
+              <button class="stat" type="button" data-stat-index="2" aria-haspopup="dialog" aria-controls="stats-dialog">
+                <strong>10+</strong><span data-i18n="stats.2">设计与三维工具</span><small data-i18n="statHint">点击查看 ↗</small>
+                <span class="stat-popover" role="tooltip"><b data-i18n="statDetails.2.title">从概念到实时呈现</b><em data-i18n="statDetails.2.text">我的日常工具包括 Maya、Substance Painter、ZBrush、Unity、Unreal Engine 4/5，以及 Photoshop、Illustrator、After Effects、Premiere Pro 和 Figma。我能够独立推进概念设计、建模、UV、材质、绑定、动画、界面与实时引擎整合。</em></span>
+              </button>
+              <button class="stat" type="button" data-stat-index="3" aria-haspopup="dialog" aria-controls="stats-dialog">
+                <strong>48H</strong><span data-i18n="stats.3">Game Jam 限时交付</span><small data-i18n="statHint">点击查看 ↗</small>
+                <span class="stat-popover" role="tooltip"><b data-i18n="statDetails.3.title">在 48 小时里做出能玩的版本</b><em data-i18n="statDetails.3.text">我参加 Global Game Jam 时，需要在 48 小时内完成主题分析、玩法确定、团队分工、美术制作、关卡整合和测试。RIFTCROSSER 围绕双手控制与场景切换完成 2D 平台体验；GIE-GIE-GIE 完成两类谜题和三个限时关卡，我负责视觉与美术方向。</em></span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div class="stats-dialog" id="stats-dialog" role="dialog" aria-modal="true" aria-labelledby="stats-dialog-title" hidden>
+          <button class="stats-dialog-backdrop" type="button" aria-label="关闭数据说明"></button>
+          <div class="stats-dialog-panel" role="document">
+            <button class="stats-dialog-close" type="button" aria-label="关闭">×</button>
+            <span class="stats-dialog-value" aria-hidden="true"></span>
+            <h2 id="stats-dialog-title"></h2>
+            <p class="stats-dialog-copy"></p>
+          </div>
+        </div>
+
+        <section class="experience-section work-section section-block" id="experience">
+          <div class="page-width">
+            <div class="section-head experience-title">
+              <p data-i18n-html="workLabel"><span>02</span> 工作经历</p>
+              <h2 data-i18n-html="workTitle">从调研与策略开始，<br />把设计推进到真实场景。</h2>
+            </div>
+            <article class="work-card experience-card">
+              <header class="experience-card-head">
+                <div>
+                  <span class="experience-eyebrow" data-i18n="workEyebrow">工作职位</span>
+                  <h3 data-i18n="workCompany">北京唐顿美景科技有限公司</h3>
+                  <p data-i18n="workCompanySub">景观、空间美陈与视觉设计</p>
+                </div>
+                <div class="experience-period">
+                  <strong>2025.06 — 2026.06</strong>
+                  <span data-i18n="workDuration">1年</span>
+                </div>
+              </header>
+              <div class="work-overview">
+                <div class="work-role-note">
+                  <span data-i18n="roleLabel">职位</span>
+                  <strong data-i18n="role">设计师</strong>
+                  <p data-i18n="workFocus">空间美陈 · 视觉系统 · 项目策略 · 落地统筹</p>
+                  <small data-i18n="workLocation">北京 · 中国</small>
+                </div>
+                <div class="work-responsibilities">
+                  <div class="detail-label" data-i18n="responsibilitiesLabel">具体工作内容</div>
+                  <ol>
+                    <li><span>01</span><p data-i18n="responsibilities.0">开展场地勘察、需求分析和前期资料收集，为项目从 0 到 1 建立策略与设计方向。</p></li>
+                    <li><span>02</span><p data-i18n="responsibilities.1">独立完成创意构思、概念提案、视觉呈现和多轮方案深化，确保设计与项目定位一致。</p></li>
+                    <li><span>03</span><p data-i18n="responsibilities.2">负责导视系统、宣传物料、室内外绿植配置与场景美陈方案的设计和呈现。</p></li>
+                    <li><span>04</span><p data-i18n="responsibilities.3">协调内部团队、外包团队与供应商推进项目落地，控制执行品质与沟通节奏。</p></li>
+                    <li><span>05</span><p data-i18n="responsibilities.4">完成供应商寻源、报价比对与现场考察，根据施工条件和实际反馈及时优化方案。</p></li>
+                  </ol>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="experience-section education-section section-block" id="education">
+          <div class="page-width">
+            <div class="section-head experience-title">
+              <p data-i18n-html="educationLabel"><span>03</span> 学习经历</p>
+              <h2 data-i18n-html="educationTitle">从数字媒体艺术，<br />走向游戏与沉浸式体验。</h2>
+            </div>
+            <div class="education-grid">
+              <article class="education-card experience-card">
+                <header>
+                  <span class="education-index">01</span>
+                  <div class="education-period"><strong>2023.09 — 2025.01</strong><span data-i18n="education.0.duration">1年5个月</span></div>
+                </header>
+                <div class="education-school">
+                  <span data-i18n="education.0.location">伦敦 · 英国</span>
+                  <h3 data-i18n="education.0.school">伦敦大学金史密斯学院</h3>
+                  <strong data-i18n="education.0.degree">游戏设计与艺术 · 硕士</strong>
+                </div>
+                <div class="education-research">
+                  <div class="detail-label" data-i18n="education.0.researchLabel">研究方向</div>
+                  <p data-i18n="education.0.direction">以游戏设计与艺术为核心，研究实时引擎中的视觉开发、交互机制、3D 内容与沉浸式体验。</p>
+                  <div class="course-content-label" data-i18n="education.0.courseLabel">课程内容</div>
+                  <ul>
+                    <li data-i18n="education.0.topics.0">游戏设计与分析</li>
+                    <li data-i18n="education.0.topics.1">视觉游戏开发</li>
+                    <li data-i18n="education.0.topics.2">3D 建模与动画</li>
+                    <li data-i18n="education.0.topics.3">增强现实</li>
+                    <li data-i18n="education.0.topics.4">UE4 音频体验</li>
+                    <li data-i18n="education.0.topics.5">UE5 游戏开发</li>
+                  </ul>
+                </div>
+              </article>
+              <article class="education-card experience-card">
+                <header>
+                  <span class="education-index">02</span>
+                  <div class="education-period"><strong>2019.09 — 2023.06</strong><span data-i18n="education.1.duration">3年10个月</span></div>
+                </header>
+                <div class="education-school">
+                  <span data-i18n="education.1.location">北京 · 中国</span>
+                  <h3 data-i18n="education.1.school">北京林业大学</h3>
+                  <strong data-i18n="education.1.degree">数字媒体艺术 · 学士</strong>
+                </div>
+                <div class="education-research">
+                  <div class="detail-label" data-i18n="education.1.researchLabel">研究方向</div>
+                  <p data-i18n="education.1.direction">围绕数字媒体艺术建立视觉与交互基础，覆盖用户体验、游戏设计、动态图形和前端技术。</p>
+                  <div class="course-content-label" data-i18n="education.1.courseLabel">课程内容</div>
+                  <ul>
+                    <li data-i18n="education.1.topics.0">用户体验设计</li>
+                    <li data-i18n="education.1.topics.1">交互设计</li>
+                    <li data-i18n="education.1.topics.2">游戏设计与美术</li>
+                    <li data-i18n="education.1.topics.3">前端技术开发</li>
+                    <li data-i18n="education.1.topics.4">动态图形设计</li>
+                    <li data-i18n="education.1.topics.5">互动绘本与游戏引擎</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="projects section-block projects-timeline-section" id="projects">
+          <div class="page-width">
+            <div class="section-head section-head-row">
+              <p data-i18n-html="projectsLabel"><span>04</span> 项目时间轴</p>
+              <h2 data-i18n-html="projectsTitle">沿着制作轨迹，<br />看想法变成可玩的世界。</h2>
+              <div class="section-note" data-i18n="projectsNote">项目轨迹 08</div>
+            </div>
+
+            <div class="projects-timeline" aria-label="项目制作时间轴">
+              <a class="project-timeline-item" href="https://fbyyw.itch.io/mine" target="_blank" rel="noreferrer" aria-label="我的 / MINE — 在 itch.io 查看项目">
+                <div class="project-timeline-phase"><strong>01</strong><span data-i18n="projectStages.0">独立游戏 · 已发布</span></div>
+                <div class="project-timeline-node" aria-hidden="true"><span></span></div>
+                <article class="project-timeline-card">
+                  <div class="project-timeline-image"><img src="./portfolio/itch-mine.webp" alt="Mine 游戏中充满手绘家具、植物和奇异生物的蓝色房间" loading="lazy" decoding="async" /></div>
+                  <div class="project-timeline-copy"><p data-i18n="projectRoles.0">游戏设计 · 2D 美术 · UNITY</p><h3 data-i18n="projectTitles.0">我的 / MINE</h3><span data-i18n="projectSummaries.0">独立完成的 2D 密室逃脱解谜游戏。玩家通过鼠标交互完成谜题并离开房间，已发布并支持浏览器直接体验。</span><b><span data-i18n="projectHover">查看项目</span> ↗</b></div>
+                </article>
+              </a>
+
+              <a class="project-timeline-item" href="https://fbyyw.itch.io/oh" target="_blank" rel="noreferrer" aria-label="OH! / 平台搭建 — 在 itch.io 查看项目">
+                <div class="project-timeline-phase"><strong>02</strong><span data-i18n="projectStages.1">独立游戏 · 已发布</span></div>
+                <div class="project-timeline-node" aria-hidden="true"><span></span></div>
+                <article class="project-timeline-card">
+                  <div class="project-timeline-image"><img src="./portfolio/itch-oh.webp" alt="OH! 游戏中的像素风木屋、树木与山坡场景" loading="lazy" decoding="async" /></div>
+                  <div class="project-timeline-copy"><p data-i18n="projectRoles.1">2D 美术 · 视觉脚本 · UNITY</p><h3 data-i18n="projectTitles.1">OH! / 平台搭建</h3><span data-i18n="projectSummaries.1">完全使用可视化脚本制作的 2D 平台游戏。玩家需要搭建平台，帮助主角穿过自然场景并抵达终点。</span><b><span data-i18n="projectHover">查看项目</span> ↗</b></div>
+                </article>
+              </a>
+
+              <a class="project-timeline-item" href="https://fbyyw.itch.io/fishing" target="_blank" rel="noreferrer" aria-label="钓鱼 / 3D 练习 — 在 itch.io 查看项目">
+                <div class="project-timeline-phase"><strong>03</strong><span data-i18n="projectStages.2">三维练习 · UNITY</span></div>
+                <div class="project-timeline-node" aria-hidden="true"><span></span></div>
+                <article class="project-timeline-card">
+                  <div class="project-timeline-image"><img src="./portfolio/itch-fishing.webp" alt="Fishing 项目的紫发角色三维模型与材质绘制界面" loading="lazy" decoding="async" /></div>
+                  <div class="project-timeline-copy"><p data-i18n="projectRoles.2">3D 建模 · 材质 · 交互</p><h3 data-i18n="projectTitles.2">钓鱼 / 3D 练习</h3><span data-i18n="projectSummaries.2">在 Maya 中完成人物与场景建模及材质制作，将资产导入 Unity，并设计站立、坐下与钓鱼交互。</span><b><span data-i18n="projectHover">查看项目</span> ↗</b></div>
+                </article>
+              </a>
+
+              <a class="project-timeline-item" href="https://fbyyw.itch.io/ai-battle-demo2" target="_blank" rel="noreferrer" aria-label="AI 战斗演示 2.0 — 在 itch.io 查看项目">
+                <div class="project-timeline-phase"><strong>04</strong><span data-i18n="projectStages.3">动作原型 · UE5</span></div>
+                <div class="project-timeline-node" aria-hidden="true"><span></span></div>
+                <article class="project-timeline-card">
+                  <div class="project-timeline-image"><img src="./portfolio/itch-ai-battle-2.webp" alt="AI Battle Demo 2.0 的第三人称战斗与平台关卡画面" loading="lazy" decoding="async" /></div>
+                  <div class="project-timeline-copy"><p data-i18n="projectRoles.3">UE5 · 动作角色扮演</p><h3 data-i18n="projectTitles.3">AI 战斗演示 2.0</h3><span data-i18n="projectSummaries.3">动作探索原型：包含敌人战斗、装备掉落、道具收集、积分，以及障碍、平台与门等关卡机制。</span><b><span data-i18n="projectHover">查看项目</span> ↗</b></div>
+                </article>
+              </a>
+
+              <a class="project-timeline-item" href="https://fbyyw.itch.io/ai-battle-demo" target="_blank" rel="noreferrer" aria-label="AI 战斗演示 — 在 itch.io 查看项目">
+                <div class="project-timeline-phase"><strong>05</strong><span data-i18n="projectStages.4">动作原型 · UE4</span></div>
+                <div class="project-timeline-node" aria-hidden="true"><span></span></div>
+                <article class="project-timeline-card">
+                  <div class="project-timeline-image"><img src="./portfolio/itch-ai-battle-1.webp" alt="AI Battle Demo 中角色与敌人的战斗范围测试画面" loading="lazy" decoding="async" /></div>
+                  <div class="project-timeline-copy"><p data-i18n="projectRoles.4">UE4 · 战斗系统 · 敌人 AI</p><h3 data-i18n="projectTitles.4">AI 战斗演示</h3><span data-i18n="projectSummaries.4">围绕攻击系统与敌人感知展开的动作原型，完成连击、受击反馈和敌人死亡动画等核心体验。</span><b><span data-i18n="projectHover">查看项目</span> ↗</b></div>
+                </article>
+              </a>
+
+              <a class="project-timeline-item" href="https://wmeng.itch.io/gie-gie-gie" target="_blank" rel="noreferrer" aria-label="GIE-GIE-GIE — 在 itch.io 查看项目">
+                <div class="project-timeline-phase"><strong>06</strong><span data-i18n="projectStages.5">团队项目 · GAME JAM</span></div>
+                <div class="project-timeline-node" aria-hidden="true"><span></span></div>
+                <article class="project-timeline-card">
+                  <div class="project-timeline-image"><img src="./portfolio/itch-gie-gie-gie.webp" alt="Gie-Gie-Gie 的粉色手绘人物与游戏标题封面" loading="lazy" decoding="async" /></div>
+                  <div class="project-timeline-copy"><p data-i18n="projectRoles.5">视觉与美术方向 · 解谜</p><h3 data-i18n="projectTitles.5">GIE-GIE-GIE</h3><span data-i18n="projectSummaries.5">团队解谜项目，包含两类小谜题与三个限时关卡；在团队中负责视觉与美术方向。</span><b><span data-i18n="projectHover">查看项目</span> ↗</b></div>
+                </article>
+              </a>
+
+              <a class="project-timeline-item" href="https://fbyyw.itch.io/riftcrosser" target="_blank" rel="noreferrer" aria-label="RIFTCROSSER — 在 itch.io 查看项目">
+                <div class="project-timeline-phase"><strong>07</strong><span data-i18n="projectStages.6">GLOBAL GAME JAM · 2022</span></div>
+                <div class="project-timeline-node" aria-hidden="true"><span></span></div>
+                <article class="project-timeline-card">
+                  <div class="project-timeline-image"><img src="./portfolio/itch-riftcrosser.webp" alt="Riftcrosser 的黑白双世界角色封面" loading="lazy" decoding="async" /></div>
+                  <div class="project-timeline-copy"><p data-i18n="projectRoles.6">2D 平台 · 双手控制 · 场景切换</p><h3 data-i18n="projectTitles.6">RIFTCROSSER</h3><span data-i18n="projectSummaries.6">围绕双手控制与场景切换设计的 2D 平台游戏，于 Global Game Jam 2022 完成。</span><b><span data-i18n="projectHover">查看项目</span> ↗</b></div>
+                </article>
+              </a>
+
+              <a class="project-timeline-item" href="./portfolio/PORTFOLIO-2025.pdf" target="_blank" rel="noreferrer" aria-label="变暗 / DARKENING — 在作品集 PDF 查看项目">
+                <div class="project-timeline-phase"><strong>08</strong><span data-i18n="projectStages.7">团队项目 · AR</span></div>
+                <div class="project-timeline-node" aria-hidden="true"><span></span></div>
+                <article class="project-timeline-card">
+                  <div class="project-timeline-image"><img src="./portfolio/darkening.webp" alt="Darkening 项目的暗色建筑与悬浮矿石概念视觉" loading="lazy" decoding="async" /></div>
+                  <div class="project-timeline-copy"><p data-i18n="projectRoles.7">3D 美术 · 增强现实 · 界面</p><h3 data-i18n="projectTitles.7">变暗 / DARKENING</h3><span data-i18n="projectSummaries.7">面向 AR 场景的五人协作项目；参与玩法策划，并完成 3D 模型、动画、材质及 UI 动效。</span><b><span data-i18n="projectPdfHover">在作品集中查看</span> ↗</b></div>
+                </article>
+              </a>
+            </div>
+
+            <div class="project-source-row">
+              <p class="visual-note" data-i18n="sourceNote">* 点击时间轴中的项目，可前往公开项目页查看、试玩或下载；DARKENING 将打开作品集 PDF。</p>
+              <a href="https://fbyyw.itch.io/" target="_blank" rel="noreferrer"><span data-i18n="profileLink">查看 ITCH.IO 主页</span> <span>↗</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="projects section-block projects-legacy" id="projects-legacy" aria-hidden="true">
+          <div class="page-width">
+            <div class="section-head section-head-row">
+              <p data-i18n-html="projectsLabel"><span>04</span> 精选项目</p>
+              <h2 data-i18n-html="projectsTitle">项目不是陈列品，<br />而是一段被设计过的体验。</h2>
+              <div class="section-note" data-i18n="projectsNote">精选 03 / 共 08</div>
+            </div>
+            <div class="projects-grid">
+              <a class="project-card" href="https://fbyyw.itch.io/mine" target="_blank" rel="noreferrer" aria-label="我的 / MINE — 在 itch.io 查看项目">
+                <div class="project-image-wrap">
+                  <img src="./portfolio/itch-mine.webp" alt="Mine 游戏中充满手绘家具、植物和奇异生物的蓝色房间" loading="lazy" decoding="async" />
+                  <div class="project-hover"><span data-i18n="projectHover">在 ITCH.IO 查看</span><i>↗</i></div>
+                  <span class="project-index">01</span>
+                </div>
+                <div class="project-meta">
+                  <div>
+                    <h3 data-i18n="projectTitles.0">我的 / MINE</h3>
+                    <p data-i18n="projectRoles.0">游戏设计 · 2D 美术 · UNITY</p>
+                  </div>
+                  <p class="project-summary" data-i18n="projectSummaries.0">独立完成的 2D 密室逃脱解谜游戏。玩家通过鼠标交互完成谜题并离开房间，已在 itch.io 发布并支持浏览器直接体验。</p>
+                  <span class="project-year">HTML5 / UNITY</span>
+                </div>
+              </a>
+              <a class="project-card" href="https://fbyyw.itch.io/oh" target="_blank" rel="noreferrer" aria-label="OH! / 平台搭建 — 在 itch.io 查看项目">
+                <div class="project-image-wrap">
+                  <img src="./portfolio/itch-oh.webp" alt="OH! 游戏中的像素风木屋、树木与山坡场景" loading="lazy" decoding="async" />
+                  <div class="project-hover"><span data-i18n="projectHover">在 ITCH.IO 查看</span><i>↗</i></div>
+                  <span class="project-index">02</span>
+                </div>
+                <div class="project-meta">
+                  <div>
+                    <h3 data-i18n="projectTitles.1">OH! / 平台搭建</h3>
+                    <p data-i18n="projectRoles.1">2D 美术 · 视觉脚本 · UNITY</p>
+                  </div>
+                  <p class="project-summary" data-i18n="projectSummaries.1">完全使用可视化脚本制作的 2D 平台游戏。玩家需要搭建平台，帮助主角穿过自然场景并抵达终点。</p>
+                  <span class="project-year">HTML5 / WINDOWS</span>
+                </div>
+              </a>
+              <a class="project-card" href="https://fbyyw.itch.io/fishing" target="_blank" rel="noreferrer" aria-label="钓鱼 / 3D 练习 — 在 itch.io 查看项目">
+                <div class="project-image-wrap">
+                  <img src="./portfolio/itch-fishing.webp" alt="Fishing 项目的紫发角色三维模型与材质绘制界面" loading="lazy" decoding="async" />
+                  <div class="project-hover"><span data-i18n="projectHover">在 ITCH.IO 查看</span><i>↗</i></div>
+                  <span class="project-index">03</span>
+                </div>
+                <div class="project-meta">
+                  <div>
+                    <h3 data-i18n="projectTitles.2">钓鱼 / 3D 练习</h3>
+                    <p data-i18n="projectRoles.2">3D 建模 · 材质 · 交互</p>
+                  </div>
+                  <p class="project-summary" data-i18n="projectSummaries.2">在 Maya 中完成人物与场景建模及材质制作，将资产导入 Unity，并设计站立、坐下与钓鱼交互。</p>
+                  <span class="project-year">UNITY / 3D</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="project-source-row">
+              <p class="visual-note" data-i18n="sourceNote">* 项目资料与图片来自本人 itch.io 公开项目页，点击卡片可查看、试玩或下载。</p>
+              <a href="https://fbyyw.itch.io/" target="_blank" rel="noreferrer"><span data-i18n="profileLink">查看 ITCH.IO 主页</span> <span>↗</span></a>
+            </div>
+
+            <div class="project-archive">
+              <div class="archive-head">
+                <p data-i18n-html="archiveLabel"><span>05</span> 更多项目 / 完整列表</p>
+                <span data-i18n="archiveCount">全部作品 08 / 08</span>
+              </div>
+              <div class="archive-grid">
+                <a class="archive-card" href="https://fbyyw.itch.io/ai-battle-demo2" target="_blank" rel="noreferrer" aria-label="AI 战斗演示 2.0 — 在 itch.io 查看项目">
+                  <div class="archive-image">
+                    <img src="./portfolio/itch-ai-battle-2.webp" alt="AI Battle Demo 2.0 的第三人称战斗与平台关卡画面" loading="lazy" decoding="async" />
+                    <span>04</span>
+                  </div>
+                  <div class="archive-copy">
+                    <p data-i18n="archiveMeta.0">UE5 · 动作角色扮演</p>
+                    <h3 data-i18n="archiveTitles.0">AI 战斗演示 2.0</h3>
+                    <span data-i18n="archiveSummaries.0">动作探索原型：包含敌人战斗、装备掉落、道具收集、积分，以及障碍、平台与门等关卡机制。</span>
+                    <i aria-hidden="true">↗</i>
+                  </div>
+                </a>
+                <a class="archive-card" href="https://fbyyw.itch.io/ai-battle-demo" target="_blank" rel="noreferrer" aria-label="AI 战斗演示 — 在 itch.io 查看项目">
+                  <div class="archive-image">
+                    <img src="./portfolio/itch-ai-battle-1.webp" alt="AI Battle Demo 中角色与敌人的战斗范围测试画面" loading="lazy" decoding="async" />
+                    <span>05</span>
+                  </div>
+                  <div class="archive-copy">
+                    <p data-i18n="archiveMeta.1">UE4 · 动作原型</p>
+                    <h3 data-i18n="archiveTitles.1">AI 战斗演示</h3>
+                    <span data-i18n="archiveSummaries.1">围绕攻击系统与敌人感知展开的动作原型，完成连击、受击反馈和敌人死亡动画等核心体验。</span>
+                    <i aria-hidden="true">↗</i>
+                  </div>
+                </a>
+                <a class="archive-card" href="https://wmeng.itch.io/gie-gie-gie" target="_blank" rel="noreferrer" aria-label="GIE-GIE-GIE — 在 itch.io 查看项目">
+                  <div class="archive-image">
+                    <img src="./portfolio/itch-gie-gie-gie.webp" alt="Gie-Gie-Gie 的粉色手绘人物与游戏标题封面" loading="lazy" decoding="async" />
+                    <span>06</span>
+                  </div>
+                  <div class="archive-copy">
+                    <p data-i18n="archiveMeta.2">全球游戏创作大赛 · 解谜</p>
+                    <h3 data-i18n="archiveTitles.2">GIE-GIE-GIE</h3>
+                    <span data-i18n="archiveSummaries.2">团队解谜项目，包含两类小谜题与三个限时关卡；在团队中负责视觉与美术方向。</span>
+                    <i aria-hidden="true">↗</i>
+                  </div>
+                </a>
+                <a class="archive-card" href="https://fbyyw.itch.io/riftcrosser" target="_blank" rel="noreferrer" aria-label="RIFTCROSSER — 在 itch.io 查看项目">
+                  <div class="archive-image">
+                    <img src="./portfolio/itch-riftcrosser.webp" alt="Riftcrosser 的黑白双世界角色封面" loading="lazy" decoding="async" />
+                    <span>07</span>
+                  </div>
+                  <div class="archive-copy">
+                    <p data-i18n="archiveMeta.3">全球游戏创作大赛 2022 · 2D 平台</p>
+                    <h3 data-i18n="archiveTitles.3">RIFTCROSSER</h3>
+                    <span data-i18n="archiveSummaries.3">围绕双手控制与场景切换设计的 2D 平台游戏，于 Global Game Jam 2022 完成。</span>
+                    <i aria-hidden="true">↗</i>
+                  </div>
+                </a>
+                <article class="archive-card">
+                  <div class="archive-image">
+                    <img src="./portfolio/darkening.webp" alt="Darkening 项目的暗色建筑与悬浮矿石概念视觉" loading="lazy" decoding="async" />
+                    <span>08</span>
+                  </div>
+                  <div class="archive-copy">
+                    <p data-i18n="archiveMeta.4">3D 美术 · 增强现实 · 界面</p>
+                    <h3 data-i18n="archiveTitles.4">变暗 / DARKENING</h3>
+                    <span data-i18n="archiveSummaries.4">面向 AR 场景的五人协作项目；参与玩法策划，并完成 3D 模型、动画、材质及 UI 动效。</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="strengths section-block" id="strengths">
+          <div class="page-width">
+            <div class="section-head">
+              <p data-i18n-html="strengthsLabel"><span>05</span> 个人优势</p>
+              <h2 data-i18n-html="strengthsTitle">在审美与系统之间，<br />找到更聪明的表达路径。</h2>
+            </div>
+            <div class="strength-grid">
+              <article class="strength-card">
+                <div class="strength-top"><span>01</span></div>
+                <div>
+                  <h3 data-i18n="strengths.0.title">视觉系统</h3>
+                  <h4 data-i18n="strengths.0.subtitle">视觉系统构建</h4>
+                  <p data-i18n="strengths.0.text">从概念、色彩与版式出发，把模糊需求转化成统一、可延展的视觉语言。</p>
+                  <div class="strength-portfolio">
+                    <a class="strength-portfolio-preview" href="./portfolio/PORTFOLIO-2025.pdf" target="_blank" rel="noreferrer" aria-label="在线浏览 PORTFOLIO 2025 PDF">
+                      <img src="./portfolio/portfolio-2025-cover.webp" alt="PORTFOLIO 2025 作品集封面" loading="lazy" decoding="async" />
+                      <span>PDF · 18 PAGES</span>
+                    </a>
+                    <div class="strength-portfolio-copy">
+                      <small data-i18n="portfolioPdf.kicker">艺术积累与尝试</small>
+                      <strong data-i18n="portfolioPdf.title">PORTFOLIO 2025</strong>
+                      <p data-i18n="portfolioPdf.description">18 页完整作品集，收录 3D 场景与角色建模、UV 与材质、骨骼绑定、桌游系统和角色概念设计。</p>
+                      <div class="strength-portfolio-actions">
+                        <a href="./portfolio/PORTFOLIO-2025.pdf" target="_blank" rel="noreferrer"><span data-i18n="portfolioPdf.view">在线浏览</span> <span aria-hidden="true">↗</span></a>
+                        <a href="./portfolio/PORTFOLIO-2025.pdf" download><span data-i18n="portfolioPdf.download">下载 PDF</span> <span aria-hidden="true">↓</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul>
+                  <li data-i18n="strengths.0.tags.0">品牌视觉</li>
+                  <li data-i18n="strengths.0.tags.1">动态设计</li>
+                  <li data-i18n="strengths.0.tags.2">界面 / 体验</li>
+                </ul>
+              </article>
+              <article class="strength-card">
+                <div class="strength-top"><span>02</span></div>
+                <div>
+                  <h3 data-i18n="strengths.1.title">游戏叙事</h3>
+                  <h4 data-i18n="strengths.1.subtitle">游戏叙事与体验</h4>
+                  <p data-i18n="strengths.1.text">从角色、空间与交互节奏出发，把玩法机制转化为清晰、有情绪的体验叙事。</p>
+                </div>
+                <ul>
+                  <li data-i18n="strengths.1.tags.0">叙事设计</li>
+                  <li data-i18n="strengths.1.tags.1">交互节奏</li>
+                  <li data-i18n="strengths.1.tags.2">快速原型</li>
+                </ul>
+              </article>
+              <a class="strength-card strength-card-link" href="#projects" aria-label="跳转到精选项目：实时视觉与三维">
+                <div class="strength-top"><span>03</span></div>
+                <div>
+                  <h3 data-i18n="strengths.2.title">实时三维</h3>
+                  <h4 data-i18n="strengths.2.subtitle">实时视觉与三维</h4>
+                  <p data-i18n="strengths.2.text">熟悉 Unity、UE、Maya 与 SP，从模型动画到实时场景完成跨媒介表达。</p>
+                </div>
+                <ul>
+                  <li data-i18n="strengths.2.tags.0">Unity / UE</li>
+                  <li data-i18n="strengths.2.tags.1">Maya / SP</li>
+                  <li data-i18n="strengths.2.tags.2">动画</li>
+                </ul>
+              </a>
+              <article class="strength-card">
+                <div class="strength-top"><span>04</span></div>
+                <div>
+                  <h3 data-i18n="strengths.3.title">从 0 到 1</h3>
+                  <h4 data-i18n="strengths.3.subtitle">从策略到落地</h4>
+                  <p data-i18n="strengths.3.text">覆盖前期调研、创意提案、视觉深化与供应商协作，让设计在真实场景中成立。</p>
+                </div>
+                <ul>
+                  <li data-i18n="strengths.3.tags.0">策略研究</li>
+                  <li data-i18n="strengths.3.tags.1">跨团队协作</li>
+                  <li data-i18n="strengths.3.tags.2">落地统筹</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact-screen" id="contact">
+          <div class="contact-orbit" aria-hidden="true"></div>
+          <div class="page-width contact-inner">
+            <p class="contact-kicker"><span class="status-dot"></span> <span data-i18n="contactKicker">可承接精选项目</span></p>
+            <p class="contact-handnote" aria-hidden="true" data-i18n-html="contactNote">把想法画成<br />可以进入的世界 ↘</p>
+            <h2 data-i18n-html="contactTitle">有一个项目？<span>让我们把它变得<em>可见。</em></span></h2>
+            <a class="contact-main" href="mailto:ywu044@gold.ac.uk"><span data-i18n="contactButton">开始沟通</span><i>↗</i></a>
+            <div class="contact-footer">
+              <div><span data-i18n="footerLabels.0">邮箱</span><a href="mailto:ywu044@gold.ac.uk">YWU044@GOLD.AC.UK</a></div>
+              <div><span data-i18n="footerLabels.1">电话</span><a href="tel:+8613371778515">+86 133 7177 8515</a></div>
+              <div><span data-i18n="footerLabels.2">所在地</span><p data-i18n="base">北京 · 中国</p></div>
+              <a class="back-top" href="#home" data-i18n="backTop">返回顶部 ↑</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
