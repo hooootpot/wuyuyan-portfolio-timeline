@@ -1,8 +1,192 @@
-/* Playful interaction layer: varied silhouettes, tactile hover and pointer tilt. */
-.project-timeline-item{--tilt-x:0deg;--tilt-y:0deg;--card-turn:-.28deg}.project-timeline-item:nth-child(even){--card-turn:.35deg}.project-timeline-item .project-timeline-card{transform:perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) rotate(var(--card-turn));transform-style:preserve-3d}.project-timeline-item:hover .project-timeline-card,.project-timeline-item:focus-visible .project-timeline-card{transform:perspective(1100px) translate(-3px,-5px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) rotate(0);box-shadow:14px 16px 0 var(--mine-pink),20px 22px 0 rgba(53,94,121,.16)}.project-timeline-item:hover .project-timeline-node span,.project-timeline-item:focus-visible .project-timeline-node span{animation:timeline-pop .7s ease both}.project-timeline-image::after{content:"PLAY ↗";position:absolute;right:15px;bottom:15px;padding:8px 10px;border:2px solid var(--ink);color:var(--ink);background:var(--mine-lime,#c8ef58);box-shadow:3px 4px 0 var(--ink);font:900 8px/1 "Courier New",monospace;opacity:0;transform:translateY(12px) rotate(3deg);transition:.25s ease}.project-timeline-image{position:relative}.project-timeline-item:hover .project-timeline-image::after,.project-timeline-item:focus-visible .project-timeline-image::after{opacity:1;transform:translateY(0) rotate(-2deg)}
-.strength-card{--float-x:0px;--float-y:0px;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.strength-card:nth-child(1){border-radius:4px 42px 7px 26px}.strength-card:nth-child(2){border-radius:50px 6px 34px 5px}.strength-card:nth-child(3){border-radius:5px 8px 54px 28px}.strength-card:nth-child(4){border-radius:32px 4px 5px 46px}.strength-card:hover,.strength-card:focus-visible{transform:translate(var(--float-x),calc(var(--float-y) - 7px)) rotate(var(--fun-rotate,0deg));filter:saturate(1.08)}.strength-card:nth-child(odd){--fun-rotate:-.45deg}.strength-card:nth-child(even){--fun-rotate:.45deg}.strength-card::before{content:"";position:absolute;z-index:2;width:62px;height:17px;top:-9px;left:17%;border:1px solid rgba(45,72,88,.2);background:rgba(255,239,174,.72);transform:rotate(-5deg);pointer-events:none}.strength-card:nth-child(even)::before{left:auto;right:15%;background:rgba(143,195,192,.64);transform:rotate(6deg)}
-.experience-card{transition:transform .28s ease,box-shadow .28s ease}.experience-card:hover{transform:translateY(-5px) rotate(-.18deg);box-shadow:10px 12px 0 var(--mine-pink),16px 18px 0 rgba(53,94,121,.13)}.education-card:nth-child(even):hover{transform:translateY(-5px) rotate(.22deg)}.work-responsibilities li,.education-research li{transition:transform .18s ease,background .18s ease}.work-responsibilities li:hover{transform:translateX(8px);background:rgba(143,195,192,.18)}.education-research li:hover{transform:translateY(-3px) rotate(-1deg);background:var(--mine-pink)}
-.nav-links a:hover .nav-index,.nav-links a:focus-visible .nav-index{animation:index-flip .55s ease}.strength-portfolio-actions a:hover,.project-source-row a:hover,.contact-pill:hover,.scroll-cue:hover{animation:tactile-bump .42s ease}.section-head h2{position:relative}.section-head h2::before{content:"";position:absolute;left:-20px;bottom:-17px;width:10px;height:10px;border:2px solid var(--mine-blue);background:var(--mine-lime,#c8ef58);box-shadow:16px 0 0 var(--mine-cyan);transition:transform .32s ease,box-shadow .32s ease}.section-head h2::after{content:"";display:block;width:92px;height:7px;margin:20px 0 0 0;border:2px solid var(--mine-blue);border-radius:0;background:linear-gradient(90deg,var(--mine-blue) 0 33%,var(--mine-cyan) 33% 66%,var(--mine-lime,#c8ef58) 66%);background-size:300% 100%;box-shadow:5px 5px 0 rgba(53,94,121,.14);transform:none;transition:width .32s ease,background-position .42s ease}.section-block:hover .section-head h2::before{transform:translateX(28px) scale(1.25);box-shadow:22px 0 0 var(--mine-cyan)}.section-block:hover .section-head h2::after{width:min(220px,48%);background-position:100% 0;transform:none}
-@keyframes timeline-pop{0%{transform:scale(1)}45%{transform:scale(1.65) rotate(20deg);background:var(--mine-lime,#c8ef58)}100%{transform:scale(1)}}@keyframes index-flip{50%{transform:rotate(180deg) scale(1.35)}}@keyframes tactile-bump{40%{transform:translateY(-4px) rotate(-1deg)}70%{transform:translateY(1px) rotate(.5deg)}}
-@media(max-width:760px){.project-timeline-item .project-timeline-card{transform:rotate(var(--card-turn))}.strength-card:hover,.strength-card:focus-visible{transform:none}.strength-card::before{width:46px}.section-head h2::before{left:0}.section-head h2::after{width:74px}.project-timeline-image::after{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.project-timeline-item .project-timeline-card,.strength-card,.experience-card,.work-responsibilities li,.education-research li{transition:none!important}.project-timeline-item:hover .project-timeline-node span,.nav-links a:hover .nav-index,.strength-portfolio-actions a:hover,.project-source-row a:hover,.contact-pill:hover,.scroll-cue:hover{animation:none!important}}
+/* Playful interaction layer with coherent frames and continuous micro-motion. */
+.project-timeline-item {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+}
+.project-timeline-item .project-timeline-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  transition: transform .32s ease, box-shadow .32s ease;
+}
+.project-timeline-item .project-timeline-card::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 38%, rgba(255,255,255,.24) 50%, transparent 62%);
+  background-size: 230% 100%;
+  animation: card-sheen 8s ease-in-out infinite;
+}
+.project-timeline-item:nth-child(even) .project-timeline-card::before { animation-delay: -4s; }
+.project-timeline-item:hover .project-timeline-card,
+.project-timeline-item:focus-visible .project-timeline-card {
+  transform: perspective(1100px) translateY(-6px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  box-shadow: 0 14px 0 rgba(234, 163, 177, .62), 0 21px 0 rgba(53, 94, 121, .12);
+}
+.project-timeline-item:hover .project-timeline-node span,
+.project-timeline-item:focus-visible .project-timeline-node span { animation: timeline-pop .7s ease both; }
+.project-timeline-image { position: relative; overflow: hidden; border-radius: 14px; }
+.project-timeline-image::after {
+  content: "PLAY ↗";
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  padding: 8px 10px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--mine-lime, #c8ef58);
+  box-shadow: 0 4px 0 var(--ink);
+  font: 900 8px/1 "Courier New", monospace;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: .25s ease;
+}
+.project-timeline-item:hover .project-timeline-image::after,
+.project-timeline-item:focus-visible .project-timeline-image::after { opacity: 1; transform: translateY(0); }
+
+.strength-card,
+.strength-card:nth-child(n) {
+  --float-x: 0px;
+  --float-y: 0px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.strength-card:hover,
+.strength-card:focus-visible,
+.strength-card:nth-child(n):hover,
+.strength-card:nth-child(n):focus-visible {
+  transform: translate(var(--float-x), calc(var(--float-y) - 7px));
+  filter: saturate(1.08);
+  box-shadow: 0 12px 0 rgba(143, 195, 192, .34);
+}
+.strength-card::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: -34%;
+  top: 0;
+  width: 34%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--mine-pink), var(--mine-cyan), var(--mine-lime, #c8ef58));
+  animation: strength-runner 6.6s ease-in-out infinite;
+  pointer-events: none;
+}
+.strength-card:nth-child(2n)::before { animation-delay: -3.3s; }
+
+.experience-card {
+  border-radius: 18px;
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 11px 0 rgba(234, 163, 177, .58), 0 17px 0 rgba(53, 94, 121, .1);
+}
+.work-responsibilities li,
+.education-research li { transition: transform .18s ease, background .18s ease; }
+.work-responsibilities li:hover { transform: translateX(8px); background: rgba(143, 195, 192, .18); }
+.education-research li:hover { transform: translateX(8px); background: var(--mine-pink); }
+
+.nav-links a:hover .nav-index,
+.nav-links a:focus-visible .nav-index { animation: index-flip .55s ease; }
+.strength-portfolio-actions a:hover,
+.project-source-row a:hover,
+.contact-pill:hover,
+.scroll-cue:hover { animation: tactile-bump .42s ease; }
+
+.section-head h2 { position: relative; }
+.section-head h2::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  bottom: -17px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--mine-blue);
+  border-radius: 50%;
+  background: var(--mine-lime, #c8ef58);
+  box-shadow: 16px 0 0 var(--mine-cyan);
+  animation: title-dots 3.8s ease-in-out infinite;
+}
+.section-head h2::after {
+  content: "";
+  display: block;
+  width: 92px;
+  height: 7px;
+  margin: 20px 0 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--mine-blue) 0 33%, var(--mine-cyan) 33% 66%, var(--mine-lime, #c8ef58) 66%);
+  background-size: 300% 100%;
+  box-shadow: 0 5px 0 rgba(53, 94, 121, .14);
+  animation: title-scan 5s ease-in-out infinite;
+}
+
+@keyframes card-sheen {
+  0%, 36% { background-position: 180% 0; }
+  62%, 100% { background-position: -120% 0; }
+}
+@keyframes strength-runner {
+  0%, 12% { left: -34%; opacity: 0; }
+  24% { opacity: 1; }
+  72% { opacity: 1; }
+  86%, 100% { left: 100%; opacity: 0; }
+}
+@keyframes title-scan {
+  0%, 18%, 100% { width: 92px; background-position: 0 0; }
+  50%, 68% { width: min(220px, 48%); background-position: 100% 0; }
+}
+@keyframes title-dots {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(12px) scale(1.18); }
+}
+@keyframes timeline-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.55); background: var(--mine-lime, #c8ef58); }
+  100% { transform: scale(1); }
+}
+@keyframes index-flip { 50% { transform: rotate(180deg) scale(1.35); } }
+@keyframes tactile-bump {
+  40% { transform: translateY(-4px); }
+  70% { transform: translateY(1px); }
+}
+
+@media (max-width: 760px) {
+  .project-timeline-item .project-timeline-card,
+  .strength-card,
+  .strength-card:nth-child(n),
+  .experience-card { border-radius: 14px; }
+  .project-timeline-item .project-timeline-card { transform: none; }
+  .strength-card:hover,
+  .strength-card:focus-visible { transform: none; box-shadow: none; }
+  .section-head h2::before { left: 0; }
+  .section-head h2::after { width: 74px; }
+  .project-timeline-image::after { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-timeline-item .project-timeline-card,
+  .project-timeline-item .project-timeline-card::before,
+  .strength-card,
+  .strength-card::before,
+  .experience-card,
+  .work-responsibilities li,
+  .education-research li,
+  .section-head h2::before,
+  .section-head h2::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .project-timeline-item:hover .project-timeline-node span,
+  .nav-links a:hover .nav-index,
+  .strength-portfolio-actions a:hover,
+  .project-source-row a:hover,
+  .contact-pill:hover,
+  .scroll-cue:hover { animation: none !important; }
+}
