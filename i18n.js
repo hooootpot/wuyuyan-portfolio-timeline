@@ -97,9 +97,9 @@
       portfolioPdf: {
         kicker: "艺术积累与尝试",
         title: "视觉造物志",
-        description: "原创设计专题，收录 3D 场景与角色、材质与绑定、桌游系统、角色概念及绘画尝试。",
+        description: "设计专题收录 3D 场景与角色、材质与绑定、桌游系统、角色概念及绘画尝试。",
         view: "进入专题页",
-        download: "下载 PDF"
+        download: "查看原始 PDF"
       },
       archiveLabel: "<span>05</span> 更多项目 / 完整列表",
       archiveCount: "全部作品 08 / 08",
@@ -225,9 +225,9 @@
       portfolioPdf: {
         kicker: "ART PRACTICE & EXPLORATION",
         title: "VISUAL MAKING NOTES",
-        description: "An original design collection spanning 3D worlds and characters, materials and rigging, tabletop systems, concept art and painting studies.",
+        description: "A design collection spanning 3D worlds and characters, materials and rigging, tabletop systems, concept art and painting studies.",
         view: "ENTER COLLECTION",
-        download: "DOWNLOAD PDF"
+        download: "VIEW ORIGINAL PDF"
       },
       archiveLabel: "<span>05</span> MORE PROJECTS / FULL LIST",
       archiveCount: "ALL WORK 08 / 08",
