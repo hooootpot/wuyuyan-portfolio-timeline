@@ -73,7 +73,7 @@
       projectsTitle: "沿着制作轨迹，<br />看想法变成可玩的世界。",
       projectsNote: "项目轨迹 08",
       projectStages: ["独立游戏 · 已发布", "独立游戏 · 已发布", "三维练习 · UNITY", "动作原型 · UE5", "动作原型 · UE4", "团队项目 · GAME JAM", "GLOBAL GAME JAM · 2022", "团队项目 · AR"],
-      projectDates: ["2024.03", "", "", "", "", "", "", "2023.12—2024.01"],
+      projectDates: ["2024.03", "", "", "", "", "", "", ""],
       projectTitles: ["我的 / MINE", "OH! / 平台搭建", "钓鱼 / 3D 练习", "AI 战斗演示 2.0", "AI 战斗演示", "GIE-GIE-GIE", "RIFTCROSSER", "变暗 / DARKENING"],
       projectTypes: ["个人项目", "个人项目", "个人项目", "个人项目", "个人项目", "3 人团队项目 · 48H", "团队项目 · GLOBAL GAME JAM", "5 人团队项目 · AR"],
       projectRoles: ["策划 / 2D 美术 / UNITY C# 程序", "视觉脚本开发者 / 策划", "3D 美术 / 交互设计", "游戏开发 / 系统设计 / UE5", "战斗系统设计 / 蓝图开发 / UE4", "2D 美术 / 动画 / 关卡策划", "游戏策划 / 2D 美术 / 关卡设计", "3D 美术 / 动画 / UI / 玩法策划"],
@@ -96,9 +96,9 @@
       profileLink: "查看 ITCH.IO 主页",
       portfolioPdf: {
         kicker: "艺术积累与尝试",
-        title: "PORTFOLIO 2025",
-        description: "18 页完整作品集，收录 3D 场景与角色建模、UV 与材质、骨骼绑定、桌游系统和角色概念设计。",
-        view: "在线浏览",
+        title: "视觉造物志",
+        description: "原创设计专题，收录 3D 场景与角色、材质与绑定、桌游系统、角色概念及绘画尝试。",
+        view: "进入专题页",
         download: "下载 PDF"
       },
       archiveLabel: "<span>05</span> 更多项目 / 完整列表",
@@ -201,7 +201,7 @@
       projectsTitle: "Follow the making process.<br />See ideas become playable worlds.",
       projectsNote: "PROJECT JOURNEY 08",
       projectStages: ["SOLO GAME · RELEASED", "SOLO GAME · RELEASED", "3D STUDY · UNITY", "ACTION PROTOTYPE · UE5", "ACTION PROTOTYPE · UE4", "TEAM PROJECT · GAME JAM", "GLOBAL GAME JAM · 2022", "TEAM PROJECT · AR"],
-      projectDates: ["2024.03", "", "", "", "", "", "", "2023.12—2024.01"],
+      projectDates: ["2024.03", "", "", "", "", "", "", ""],
       projectTitles: ["MINE", "OH! / PLATFORM BUILDER", "FISHING / 3D STUDY", "AI BATTLE DEMO 2.0", "AI BATTLE DEMO", "GIE-GIE-GIE", "RIFTCROSSER", "DARKENING"],
       projectTypes: ["SOLO PROJECT", "SOLO PROJECT", "SOLO PROJECT", "SOLO PROJECT", "SOLO PROJECT", "3-PERSON TEAM · 48H", "TEAM PROJECT · GLOBAL GAME JAM", "5-PERSON TEAM · AR"],
       projectRoles: ["DESIGN / 2D ART / UNITY C#", "VISUAL SCRIPTING DEVELOPER / DESIGN", "3D ART / INTERACTION DESIGN", "GAME DEVELOPMENT / SYSTEM DESIGN / UE5", "COMBAT DESIGN / BLUEPRINT DEVELOPMENT / UE4", "2D ART / ANIMATION / LEVEL DESIGN", "GAME DESIGN / 2D ART / LEVEL DESIGN", "3D ART / ANIMATION / UI / GAMEPLAY DESIGN"],
@@ -224,9 +224,9 @@
       profileLink: "VIEW ITCH.IO PROFILE",
       portfolioPdf: {
         kicker: "ART PRACTICE & EXPLORATION",
-        title: "PORTFOLIO 2025",
-        description: "An 18-page portfolio spanning 3D environment and character modelling, UVs and texturing, rigging, tabletop systems and character concept design.",
-        view: "VIEW ONLINE",
+        title: "VISUAL MAKING NOTES",
+        description: "An original design collection spanning 3D worlds and characters, materials and rigging, tabletop systems, concept art and painting studies.",
+        view: "ENTER COLLECTION",
         download: "DOWNLOAD PDF"
       },
       archiveLabel: "<span>05</span> MORE PROJECTS / FULL LIST",
