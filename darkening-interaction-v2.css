@@ -9,18 +9,9 @@
   transition: transform .3s ease, box-shadow .3s ease;
   animation: hero-shadow-pulse 6s ease-in-out infinite;
 }
-.hero-art::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(110deg, transparent 38%, rgba(198, 244, 93, .2) 50%, transparent 62%);
-  background-size: 230% 100%;
-  animation: dark-sheen 7.5s ease-in-out infinite;
-}
-.hero-art:hover { box-shadow: 0 18px 0 rgba(234, 141, 169, .46); }
+.hero-art:hover { box-shadow: 0 0 0 5px var(--acid), 0 18px 0 rgba(234, 141, 169, .32); }
 .hero-art img { transition: transform .6s ease, filter .35s ease; }
-.hero-art:hover img { transform: scale(1.025); filter: saturate(1.22) contrast(1.08); }
+.hero-art:hover img { transform: scale(1.035); filter: saturate(.88) contrast(1.25) brightness(.78); }
 
 .role-card,
 .contribution-grid article,
@@ -32,9 +23,9 @@
   transition: transform .3s cubic-bezier(.2, .8, .2, 1), box-shadow .3s ease, background .3s ease;
 }
 .primary-card:hover,
-.primary-card:focus-within { transform: translateY(-7px); box-shadow: 0 13px 0 rgba(198, 244, 93, .38); }
+.primary-card:focus-within { transform: translateX(8px); box-shadow: inset 6px 0 0 var(--acid); }
 .team-card:hover,
-.team-card:focus-within { transform: translateY(-7px); box-shadow: 0 13px 0 rgba(234, 141, 169, .34); }
+.team-card:focus-within { transform: translateX(-8px); box-shadow: inset -6px 0 0 var(--pink); }
 
 .journey-flow li { position: relative; padding-left: 12px; overflow: hidden; }
 .journey-flow li::before {
@@ -99,8 +90,9 @@
 }
 .contribution-grid article:hover {
   z-index: 2;
-  transform: translateY(-8px);
-  box-shadow: 0 13px 0 rgba(198, 244, 93, .4);
+  transform: translateX(9px);
+  background: rgba(198, 244, 93, .16);
+  box-shadow: inset 6px 0 0 var(--acid);
 }
 .contribution-grid article:hover::after { opacity: 1; transform: none; }
 
@@ -123,7 +115,7 @@
   background: var(--pink);
   transition: width .4s ease;
 }
-.process-list article:hover { transform: translateY(-6px); background: #fffaf0; }
+.process-list article:hover { transform: none; background: var(--acid); }
 .process-list article:hover::after { width: 100%; }
 
 .process-gallery img {
@@ -138,10 +130,11 @@
 .process-gallery img:hover {
   z-index: 2;
   animation-play-state: paused;
-  transform: translateY(-8px) scale(1.025);
-  filter: saturate(1.15);
-  box-shadow: 0 13px 0 rgba(18, 35, 29, .32);
+  transform: scale(1.035);
+  filter: saturate(.8) contrast(1.25) brightness(.82);
+  box-shadow: 0 0 0 5px var(--acid);
 }
+.process-gallery:hover img:not(:hover) { filter: brightness(.48) saturate(.55); }
 
 .monster-section figure img { animation: monster-breathe 4.8s ease-in-out infinite; }
 .monster-ui { animation: ui-float 5.2s ease-in-out infinite; }
@@ -161,10 +154,6 @@
 @keyframes hero-shadow-pulse {
   0%, 100% { box-shadow: 0 0 0 rgba(198, 244, 93, 0); }
   50% { box-shadow: 0 12px 0 rgba(198, 244, 93, .18); }
-}
-@keyframes dark-sheen {
-  0%, 34% { background-position: 180% 0; }
-  60%, 100% { background-position: -120% 0; }
 }
 @keyframes journey-beacon {
   0%, 100% { opacity: .35; transform: translateY(-50%) scale(.75); }
@@ -194,13 +183,17 @@
   .process-list article:hover,
   .contribution-grid article:hover,
   .role-card:hover { transform: none; box-shadow: none; }
+  .contribution-grid article:hover { background: inherit; }
+  .hero-art:hover { box-shadow: none; }
+  .hero-art:hover img,
+  .process-gallery img:hover,
+  .process-gallery:hover img:not(:hover) { transform: none; filter: none; box-shadow: none; }
   .process-gallery img { animation: none; }
   .case-section.reveal-ready { transform: translateY(18px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-art,
-  .hero-art::after,
   .hero-art img,
   .role-card,
   .journey-flow li,

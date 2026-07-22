@@ -3,7 +3,7 @@
   --tilt-x: 0deg;
   --tilt-y: 0deg;
 }
-.project-timeline-item .project-timeline-card {
+.project-timeline-item:nth-child(n) .project-timeline-card {
   position: relative;
   overflow: hidden;
   border-radius: 18px;
@@ -11,20 +11,9 @@
   transform-style: preserve-3d;
   transition: transform .32s ease, box-shadow .32s ease;
 }
-.project-timeline-item .project-timeline-card::before {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(110deg, transparent 38%, rgba(255,255,255,.24) 50%, transparent 62%);
-  background-size: 230% 100%;
-  animation: card-sheen 8s ease-in-out infinite;
-}
-.project-timeline-item:nth-child(even) .project-timeline-card::before { animation-delay: -4s; }
-.project-timeline-item:hover .project-timeline-card,
-.project-timeline-item:focus-visible .project-timeline-card {
-  transform: perspective(1100px) translateY(-6px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+.project-timeline-item:nth-child(n):hover .project-timeline-card,
+.project-timeline-item:nth-child(n):focus-visible .project-timeline-card {
+  transform: perspective(1100px) translateY(-7px) scale(1.006) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
   box-shadow: 0 14px 0 rgba(234, 163, 177, .62), 0 21px 0 rgba(53, 94, 121, .12);
 }
 .project-timeline-item:hover .project-timeline-node span,
@@ -128,10 +117,6 @@
   animation: title-scan 5s ease-in-out infinite;
 }
 
-@keyframes card-sheen {
-  0%, 36% { background-position: 180% 0; }
-  62%, 100% { background-position: -120% 0; }
-}
 @keyframes strength-runner {
   0%, 12% { left: -34%; opacity: 0; }
   24% { opacity: 1; }
@@ -163,6 +148,8 @@
   .strength-card:nth-child(n),
   .experience-card { border-radius: 14px; }
   .project-timeline-item .project-timeline-card { transform: none; }
+  .project-timeline-item:nth-child(n):hover .project-timeline-card,
+  .project-timeline-item:nth-child(n):focus-visible .project-timeline-card { transform: none; box-shadow: 9px 11px 0 var(--mine-blue); }
   .strength-card:hover,
   .strength-card:focus-visible { transform: none; box-shadow: none; }
   .section-head h2::before { left: 0; }
@@ -172,7 +159,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .project-timeline-item .project-timeline-card,
-  .project-timeline-item .project-timeline-card::before,
   .strength-card,
   .strength-card::before,
   .experience-card,
